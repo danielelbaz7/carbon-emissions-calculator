@@ -17,10 +17,18 @@
         </div>
     </div>
     <form action="/process-flight-data", method="POST", id="flightForm">
-        <label for="curloc">Departing Airport:</label><br>
-        <input type="text" id="curloc" name="curloc"><br>
-        <label for="desloc">Destination Airport:</label><br>
-        <input type="text" id="desloc" name="desloc"><br><br>
+        <label for="curlocFlight">Departing Airport:</label><br>
+        <input type="text" id="curlocFlight"><br>
+        <label for="deslocFlight">Destination Airport:</label><br>
+        <input type="text" id="deslocFlight"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <form action="/process-car-data", method="POST", id="carForm">
+        <label for="curlocCar">Make:</label><br>
+        <input type="text" id="curlocCar"><br>
+        <label for="deslocCar">Model:</label><br>
+        <input type="text" id="deslocCar"><br><br>
         <button type="submit">Submit</button>
     </form>
 </body>
