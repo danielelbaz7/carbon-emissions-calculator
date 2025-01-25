@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="{{ url_for('static', filename='form-handler.js') }}" defer></script>
+
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            CarbonCalculator
+        </div>
+        <div class="links">
+            <a href="about.html">About Us</a>
+        </div>
+    </div>
+    <form>
+        <label for="curloc">Current Location:</label><br>
+        <input type="text" id="curloc" name="curloc"><br>
+        <label for="desloc">Destination:</label><br>
+        <input type="text" id="desloc" name="desloc"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
