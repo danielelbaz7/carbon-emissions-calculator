@@ -27,6 +27,8 @@ body {
 .header .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    color: lightblue;
+    text-decoration: none;
 }
 
 .header .links a {
@@ -34,6 +36,7 @@ body {
     margin-left: 1rem;
     font-size: 1rem;
     transition: color 0.3s;
+    text-decoration: none;
 }
 
 .header .links a:hover {
