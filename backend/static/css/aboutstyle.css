@@ -1,0 +1,51 @@
+body, h1, h2, h3, p, a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+.header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.header .logo .homelink {
+    color: white; /* Keep the text white */
+    text-decoration: none; /* Remove the underline */
+    font-weight: bold;
+}
+
+.header .logo .homelink:hover {
+    color: #ddd; /* Lighter color on hover */
+}
+
+.header .links a {
+    color: white;
+    margin-left: 1rem;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.header .links a:hover {
+    color: #ddd;
+}
