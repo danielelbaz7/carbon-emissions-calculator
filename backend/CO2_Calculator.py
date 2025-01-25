@@ -6,7 +6,7 @@ CORS(app, origins='http://localhost:3000')
 
 @app.route("/")
 def index():
-    return "Hello World!"
+    return render_template('index.html')
 
 @app.route("/about")
 def about():
