@@ -1,6 +1,7 @@
 <script setup>
 import FlightData from "@/components/FlightData.vue";
 import VehicleData from "@/components/VehicleData.vue";
+import ElectricData from "@/components/ElectricData.vue";
 import Counter from "@/components/Counter.vue";
 </script>
 
@@ -18,6 +19,8 @@ import Counter from "@/components/Counter.vue";
   <FlightData/>
 
   <VehicleData/>
+
+  <ElectricData/>
   <footer>
 
   </footer>
