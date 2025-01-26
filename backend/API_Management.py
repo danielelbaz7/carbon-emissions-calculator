@@ -47,7 +47,7 @@ def get_flight_data():
         carbon_data_lbs["flights"].append(response_values.carbon_lb)
         carbon_data_kg["flights"].append(response_values.carbon_kg)
 
-    return "{response.status_code}"
+    return f"{response.status_code}"
 
 
 
