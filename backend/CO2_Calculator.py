@@ -58,12 +58,15 @@ def get_flight_data():
     }
 
     response = requests.post(CI_URL, headers=HEADERS, json=data)
+    print(f"API Response Status: {response.status_code}, Response: {response.text}")
+    print('Hello!')
     if(response.status_code == 200):
         response_values = parse_responses.Response(response.json())
         carbon_data_lbs["flights"].append(response_values.carbon_lb)
         carbon_data_kg["flights"].append(response_values.carbon_kg)
+        return "Created", 201
 
-    return f"{response.status_code}"
+    return "Failed", response.status_code
 
 @app.route("/get-makes", methods=["GET"])
 def get_makes():

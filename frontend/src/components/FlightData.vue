@@ -4,13 +4,21 @@ import {defineComponent} from "vue";
 export default defineComponent({
   methods: {
     async getFlightData() {
-      let departure = this.curloc;
-      let destination = this.desloc;
-      let response = fetch(`http://localhost:5000/process-flight-data?curloc=${departure}&desloc=${destination}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+      const departure = this.curloc;
+      const destination = this.desloc;
+      try {
+        const response = await fetch(`http://localhost:5000/process-flight-data?curloc=${departure}&desloc=${destination}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        this.borderSuccess(response.status);
+      } catch (error) {
+        console.error("Error fetching flight data:", error);
+        this.borderSuccess(500);
+      }
+    },/*
         body: JSON.stringify({
           curloc: departure,
           desloc: destination,
@@ -18,16 +26,18 @@ export default defineComponent({
       });
 
       this.borderSuccess({code: response});
-    },
+    },*/
 
-    borderSuccess(message) {
-      if (message.code === 201) {
+    borderSuccess(status) {
+      const formElement = document.getElementById("flightForm");
+      if (status === 201) {
         console.log(message.data);
-        document.getElementById("flightForm").style.borderColor="green";
+        formElement.style.borderColor = "green";
       }
       else {
-        document.getElementById("flightForm").style.borderColor="red";
+        formElement.style.borderColor = "red";
       }
+      setTimeout(() => {formElement.style.borderColor = "transparent";}, 2000);
     }
   }
 })
@@ -41,7 +51,7 @@ export let desloc = null
 </script>
 
 <template>
-  <form @action="getFlightData" method="POST" id="flightForm">
+  <form @submit.prevent="getFlightData" method="POST" id="flightForm">
     <h2>Enter Your Flight Data:</h2>
     <label for="curlocFlight">Departing Airport:</label>
     <input v-model="curloc" type="text" id="curlocFlight"><br><br>
