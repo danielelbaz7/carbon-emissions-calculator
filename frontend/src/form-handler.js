@@ -1,5 +1,5 @@
 // JavaScript function to handle form submission
-function submitForm(event) {
+/*function submitForm(event) {
     // Prevent the form from refreshing the page
     event.preventDefault();
 
@@ -31,5 +31,4 @@ function submitForm(event) {
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('carbonForm');
     form.addEventListener('submit', submitForm);
-});
-
+});*/
