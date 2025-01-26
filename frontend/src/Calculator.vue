@@ -1,6 +1,7 @@
 <script setup>
 import FlightData from "@/components/FlightData.vue";
 import VehicleData from "@/components/VehicleData.vue";
+import Counter from "@/components/Counter.vue";
 </script>
 
 <template>
@@ -12,7 +13,7 @@ import VehicleData from "@/components/VehicleData.vue";
       <a href="/about">About Us</a>
     </div>
   </div>
-
+  <Counter/>
   <FlightData/>
 
   <VehicleData/>
