@@ -1,7 +1,7 @@
 <template>
   <a @click="fetchValue">
   <div class="fixed">
-    Total Emissions:<br>
+    Total Monthly Emissions:<br>
     {{ emissionCount }}
   </div>
   </a>

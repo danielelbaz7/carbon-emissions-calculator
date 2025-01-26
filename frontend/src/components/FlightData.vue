@@ -32,7 +32,7 @@ export default defineComponent({
     borderSuccess(status) {
       const formElement = document.getElementById("flightForm");
       if (status === 201) {
-        console.log(message.data);
+        console.log(status.data);
         formElement.style.borderColor = "green";
       }
       else {
@@ -53,7 +53,7 @@ export let desloc = null
 
 <template>
   <form @submit.prevent="getFlightData" method="POST" id="flightForm">
-    <h2>Enter Your Flight Data:</h2>
+    <h2>Flights Taken This Month:</h2>
     <label for="curlocFlight">Departing Airport:</label>
     <input v-model="curloc" type="text" id="curlocFlight"><br><br>
     <label for="deslocFlight">Destination Airport:</label>

@@ -33,7 +33,7 @@ function updateModels(event) {
 
 <template>
   <form action="/process-car-data" method="POST" id="carForm">
-    <h2>Have you Driven Recently?</h2>
+    <h2>Miles Driven This Past Month:</h2>
     <label for="curlocCar">Make:</label>
     <div class="select">
       <select @change="updateModels" name="curlocCar" id="curlocCar">
