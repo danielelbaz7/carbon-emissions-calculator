@@ -14,9 +14,9 @@
   <section class="content">
     <h3>This webpage was made for the SwampHacks X Hackathon!</h3>
     <p>
-      We developed this website to help track people's carbon emissions. Travel can often be
+      We developed this website to help track people's carbon emissions. Regular activities can often be
       detrimental to the environment, so we developed a calculator to help people see just how
-      much impact their trips can have.
+      much impact their trips and electricity can have.
     </p>
   </section>
 </template>
