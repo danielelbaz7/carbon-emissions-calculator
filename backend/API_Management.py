@@ -4,8 +4,8 @@ from CO2_Calculator import app
 import parse_responses
 
 from flask import Flask, request, Blueprint
-import dotenv
 import requests
+import dotenv
 
 
 dotenv.load_dotenv()
@@ -13,6 +13,7 @@ dotenv.load_dotenv()
 CI_KEY = os.getenv("CARBON_INTERFACE_API_KEY")
 
 CI_URL = "https://www.carboninterface.com/api/v1/estimates"
+MAKES_URL = "https://www.carboninterface.com/api/v1/vehicle_makes"
 
 HEADERS = {
     "Authorization": f"Bearer {CI_KEY}",
@@ -49,5 +50,11 @@ def get_flight_data():
 
     return f"{response.status_code}"
 
-
+@app.route("/get-makes", methods=["GET"])
+def get_makes():
+    response = requests.get(MAKES_URL, headers=HEADERS)
+    if(response.status_code == 200):
+        all_makes = [item["data"]["attributes"]["name"] for item in response.json()]
+        return all_makes
+    return None
 
