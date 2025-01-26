@@ -31,8 +31,7 @@ export default defineComponent({
 
     borderSuccess(status) {
       const formElement = document.getElementById("flightForm");
-      if (status === 201) {
-        console.log(message.data);
+      if (status.status === 201) {
         formElement.style.borderColor = "green";
       }
       else {

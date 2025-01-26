@@ -131,16 +131,16 @@ form button:hover {
 }
 
 #flightForm {
-    border:1px solid transparent;
+    border:2px solid transparent;
     transition: border-color 0.3s ease-in-out;
 }
 
 #carForm {
-    border:1px solid transparent;
+    border:2px solid transparent;
 }
 
 #elecForm {
-    border:1px solid transparent;
+    border:2px solid transparent;
 }
 
 @media (max-width: 768px) {
