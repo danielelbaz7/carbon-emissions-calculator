@@ -22,6 +22,7 @@ export default defineComponent({
 
     borderSuccess(message) {
       if (message.code === 201) {
+        console.log(message.data);
         document.getElementById("flightForm").style.borderColor="green";
       }
       else {
@@ -30,6 +31,10 @@ export default defineComponent({
     }
   }
 })
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 export let curloc = null
 export let desloc = null
