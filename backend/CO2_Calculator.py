@@ -86,6 +86,11 @@ def get_total_emissions():
     total_emissions_kg = 0
     total_emissions_lb = 0
 
+    for num in carbon_data_kg["flights"]:
+        total_emissions_kg += num["emissions"]
+    for num in carbon_data_lbs["flights"]:
+        total_emissions_lb += num["emissions"]
+
     return json.dumps({"kg": total_emissions_kg, "lb": total_emissions_lb})
 
 
