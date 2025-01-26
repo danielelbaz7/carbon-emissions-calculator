@@ -1,6 +1,6 @@
 
 <script setup>
-import {getVehicleMakes} from "@/calculator.js";
+import {getVehicleMakes, getVehicleModels} from "@/calculator.js";
 import {onMounted, defineComponent} from "vue";
 
 onMounted( () =>
@@ -15,6 +15,20 @@ onMounted( () =>
   })
 )
 
+
+function updateModels(event) {
+  let make = document.getElementById("curlocCar").value;
+  getVehicleModels(make).then((response) => response.json()).then((models) => {
+    let select = document.getElementById("deslocCar");
+    for (let i = 0; i < models.ids.length - 1; i++) {
+      let option = document.createElement("option");
+      option.value = models.ids[i];
+      option.innerText = models.names[i];
+      select.appendChild(option);
+    }
+  })
+}
+
 </script>
 
 <template>
@@ -22,15 +36,16 @@ onMounted( () =>
     <h2>Have you Driven Recently?</h2>
     <label for="curlocCar">Make:</label>
     <div class="select">
-      <select name="curlocCar" id="curlocCar">
+      <select @change="updateModels" name="curlocCar" id="curlocCar">
       </select><br><br>
       <span class="focus"></span>
     </div>
     <label for="deslocCar">Model:</label><br>
-    <input type="text" id="deslocCar">
+    <select name="deslocCar" id="deslocCar">
+      </select><br><br>
     <label for="milDriv">Miles Driven:</label><br>
     <input type="text" id="milDriv"><br><br>
-    <button @click="" type="submit">Submit</button>
+    <button @click="" type="button">Submit</button>
   </form>
 </template>
 
