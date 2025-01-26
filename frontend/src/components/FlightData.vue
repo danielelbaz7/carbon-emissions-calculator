@@ -13,6 +13,7 @@ export default defineComponent({
             "Content-Type": "application/json",
           },
         });
+        console.log("Response Status:", response.status);
         this.borderSuccess(response.status);
       } catch (error) {
         console.error("Error fetching flight data:", error);

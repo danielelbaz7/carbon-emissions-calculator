@@ -46,8 +46,11 @@ for key in keys:
 
 @app.route("/process-flight-data", methods=["POST"])
 def get_flight_data():
-    departure = request.args.get('curloc')
-    destination = request.args.get('desloc')
+    departure = request.args.get('curloc', "").strip()
+    destination = request.args.get('desloc', "").strip()
+
+    if not departure or not destination:
+        return {"error": "Missing or invalid parameters"}, 400
 
     data = {
         "type": "flight",
@@ -58,9 +61,9 @@ def get_flight_data():
     }
 
     response = requests.post(CI_URL, headers=HEADERS, json=data)
-    print(f"API Response Status: {response.status_code}, Response: {response.text}")
+    print(f"Request Payload: {data}, API Response Status: {response.status_code}, Response: {response.text}")
     print('Hello!')
-    if(response.status_code == 200):
+    if(response.status_code == 201):
         response_values = parse_responses.Response(response.json())
         carbon_data_lbs["flights"].append(response_values.carbon_lb)
         carbon_data_kg["flights"].append(response_values.carbon_kg)

@@ -7,7 +7,12 @@ class Response:
     carbon_lb: int
     carbon_kg: int
     def __init__(self, response):
-        parsed = json.loads(response)
-        self.id = parsed["data"]["id"]
-        self.carbon_lb = parsed["data"]["attributes"]["carbon_lb"]
-        self.carbon_kg = parsed["data"]["attributes"]["carbon_kg"]
+        try:
+            self.id = response.get("data", {}).get("id", "")
+            self.carbon_lb = response.get("data", {}).get("attributes", {}).get("carbon_lb", 0)
+            self.carbon_kg = response.get("data", {}).get("attributes", {}).get("carbon_kg", 0)
+        except Exception as e:
+            print(f"Error parsing response: {e}")
+            self.id = ""
+            self.carbon_lb = 0
+            self.carbon_kg = 0
