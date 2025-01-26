@@ -7,6 +7,21 @@ createApp(Calculator).mount('#app')
 export function getFlightData() {
     let departure = this.curloc;
     let destination = this.desloc;
+    return fetch(`http://localhost:5000/process-flight-data?curloc=${departure}&desloc=${destination}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            curloc: departure,
+            desloc: destination,
+        }),
+    });
+}
+
+export function getFlightData() {
+    let departure = this.curloc;
+    let destination = this.desloc;
     return fetch(`http://localhost:5000/process-flight-data?curloc=${departure}&desloc=${destination}`, {method: "POST"})
 }
 
