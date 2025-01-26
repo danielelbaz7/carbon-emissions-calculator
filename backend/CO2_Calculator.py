@@ -70,7 +70,7 @@ def get_makes():
     response = requests.get(MAKES_URL, headers=HEADERS)
     if(response.status_code == 200):
         all_makes = [item["data"]["attributes"]["name"] for item in response.json()]
-        return jsonify(all_makes)
+        return all_makes
     return None
 
 @app.route("/get-total-emissions", methods=["GET"])
