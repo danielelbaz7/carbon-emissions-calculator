@@ -17,7 +17,7 @@ body {
 .header {
     background-color: #4CAF50;
     color: white;
-    padding: 1rem 2rem;
+    padding: 1rem 2rem 1rem 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,6 +33,12 @@ body {
     color: lightblue;
     text-decoration: none;
     gap: 10px;
+}
+
+.header .logo a{
+    background-image: linear-gradient(#02a5db, #05e3e3);
+    color: transparent;
+    background-clip: text;
 }
 .header .logo img {
     width: 32px;
