@@ -7,7 +7,7 @@ import Counter from "@/components/Counter.vue";
 <template>
   <div class="header">
     <div class="logo">
-      <img src="./assets/logo0.jpeg" alt="Logo">
+      <img src="./assets/logocc0.png" alt="Logo">
       <a href="/" class="homelink">Carbon Calculator</a>
     </div>
     <div class="links">
