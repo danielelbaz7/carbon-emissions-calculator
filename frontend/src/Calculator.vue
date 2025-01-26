@@ -18,4 +18,7 @@ import Counter from "@/components/Counter.vue";
   <FlightData/>
 
   <VehicleData/>
+  <footer>
+    <img src="./assets/footertrees.jpeg">
+  </footer>
 </template>
