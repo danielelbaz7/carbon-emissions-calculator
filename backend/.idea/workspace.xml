@@ -7,7 +7,6 @@
     <list default="true" id="edbe51d3-b6f4-48a6-8247-2b4d597e77a9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CO2_Calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/CO2_Calculator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/calculator.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/calculator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/components/VehicleData.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/VehicleData.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -29,6 +29,36 @@ function updateModels(event) {
   })
 }
 
+function borderSuccess(status) {
+  const formElement = document.getElementById("carForm");
+  if (status === 201) {
+    console.log(message.data);
+    formElement.style.borderColor = "green";
+  }
+  else {
+    formElement.style.borderColor = "red";
+  }
+  setTimeout(() => {formElement.style.borderColor = "transparent";}, 2000);
+}
+
+function getDriveData() {
+  const model = document.getElementById("deslocCar").value;
+  const distance = document.getElementById("milDriv").value;
+  try {
+    const response = fetch(`http://localhost:5000/process-car-data?deslocCar=${model}&milDriv=${distance}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log("Response Status:", response.status);
+    borderSuccess(response.status);
+  } catch (error) {
+    console.error("Error fetching drive data:", error);
+    borderSuccess(500);
+  }
+}
+
 </script>
 
 <template>
@@ -45,7 +75,7 @@ function updateModels(event) {
       </select><br><br>
     <label for="milDriv">Miles Driven:</label><br>
     <input type="text" id="milDriv"><br><br>
-    <button @click="" type="button">Submit</button>
+    <button @click="getDriveData" type="button">Submit</button>
   </form>
 </template>
 
