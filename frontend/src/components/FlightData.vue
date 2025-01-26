@@ -1,9 +1,34 @@
 <script>
-import {getFlightData} from "@/calculator.js";
 import {defineComponent} from "vue";
 
 export default defineComponent({
-  methods: {getFlightData}
+  methods: {
+    async getFlightData() {
+      let departure = this.curloc;
+      let destination = this.desloc;
+      let response = fetch(`http://localhost:5000/process-flight-data?curloc=${departure}&desloc=${destination}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          curloc: departure,
+          desloc: destination,
+        }),
+      });
+
+      this.borderSuccess({code: response});
+    },
+
+    borderSuccess(message) {
+      if (message.code === 201) {
+        document.getElementById("flightForm").style.borderColor="green";
+      }
+      else {
+        document.getElementById("flightForm").style.borderColor="red";
+      }
+    }
+  }
 })
 
 export let curloc = null

@@ -33,11 +33,3 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', submitForm);
 });
 
-function borderSuccess(code) {
-    if (code == 200) {
-        document.getElementById("flightForm").style.borderColor="green";
-    }
-    else {
-        document.getElementById("flightForm").style.borderColor="red";
-    }
-}
