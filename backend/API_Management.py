@@ -1,14 +1,12 @@
-import json
 import os
+from CO2_Calculator import app
 
-from backend.CO2_Calculator import app
 import parse_responses
 
-from flask import Flask, request
+from flask import Flask, request, Blueprint
 import dotenv
 import requests
 
-from backend.parse_responses import parse_response
 
 dotenv.load_dotenv()
 
@@ -29,10 +27,11 @@ for key in keys:
     carbon_data_lbs[key] = []
     carbon_data_kg[key] = []
 
+
 @app.route("/process-flight-data", methods=["POST"])
 def get_flight_data():
-    departure = request.form.get("curloc")
-    destination = request.form.get("desloc")
+    departure = request.args.get('curloc')
+    destination = request.args.get('desloc')
 
     data = {
         "type": "flight",
@@ -48,7 +47,7 @@ def get_flight_data():
         carbon_data_lbs["flights"].append(response_values.carbon_lb)
         carbon_data_kg["flights"].append(response_values.carbon_kg)
 
-    return response.status_code
+    return "{response.status_code}"
 
 
 
