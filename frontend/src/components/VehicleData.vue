@@ -1,5 +1,18 @@
-<script setup>
 
+<script setup>
+import {onMounted} from "vue";
+import {getVehicleMakes} from "@/calculator.js";
+
+onMounted(() => {
+  let makes = getVehicleMakes()
+  let select = document.getElementById("curlocCar");
+  for (let i = 0; i < 10; i++) {
+    let option = document.createElement("option");
+    option.value = makes[i];
+    option.innerText = makes[i];
+    select.appendChild(option);
+  }
+})
 </script>
 
 <template>

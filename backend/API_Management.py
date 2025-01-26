@@ -43,7 +43,7 @@ def get_flight_data():
     }
 
     response = requests.post(CI_URL, headers=HEADERS, json=data)
-    if(response.status_code == 200):
+    if(response.status_code == 201):
         response_values = parse_responses.Response(response.json())
         carbon_data_lbs["flights"].append(response_values.carbon_lb)
         carbon_data_kg["flights"].append(response_values.carbon_kg)

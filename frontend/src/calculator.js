@@ -9,3 +9,7 @@ export function getFlightData() {
     let destination = this.desloc;
     return fetch(`http://localhost:5000/process-flight-data?curloc=${departure}&desloc=${destination}`, {method: "POST"})
 }
+
+export function getVehicleMakes() {
+    return fetch(`http://localhost:5000/get-makes`)
+}
