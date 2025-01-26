@@ -25,10 +25,19 @@ body {
 }
 
 .header .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 1.5rem;
     font-weight: bold;
     color: lightblue;
     text-decoration: none;
+    gap: 10px;
+}
+.header .logo img {
+    width: 32px;
+    height: auto;
+    background: transparent;
 }
 
 .header .links a {
@@ -128,6 +137,7 @@ form button:hover {
         margin: 2rem auto;
     }
 }
+/*Select and Fixed box styles were written with assistance of GPT-4o*/
 select {
     width: 100%;
     padding: 0.5rem;
@@ -141,7 +151,7 @@ select {
     cursor: pointer;
     background-image: linear-gradient(45deg, transparent 50%, #4CAF50 50%),
     linear-gradient(135deg, #4CAF50 50%, transparent 50%);
-    background-position: calc(100% - 20px) center, calc(100% - 15px) center; /* Adjusted this line */
+    background-position: calc(100% - 20px) center, calc(100% - 15px) center;
     background-size: 5px 5px, 5px 5px;
     background-repeat: no-repeat;
 }
