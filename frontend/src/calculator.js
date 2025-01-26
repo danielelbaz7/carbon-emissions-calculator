@@ -10,6 +10,6 @@ export function getFlightData() {
     return fetch(`http://localhost:5000/process-flight-data?curloc=${departure}&desloc=${destination}`, {method: "POST"})
 }
 
-export function getVehicleMakes() {
+export async function getVehicleMakes() {
     return fetch(`http://localhost:5000/get-makes`)
 }

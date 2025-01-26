@@ -1,18 +1,20 @@
 
 <script setup>
-import {onMounted} from "vue";
 import {getVehicleMakes} from "@/calculator.js";
+import {onMounted} from "vue";
 
-onMounted(() => {
-  let makes = getVehicleMakes()
-  let select = document.getElementById("curlocCar");
-  for (let i = 0; i < 10; i++) {
-    let option = document.createElement("option");
-    option.value = makes[i];
-    option.innerText = makes[i];
-    select.appendChild(option);
-  }
-})
+onMounted( () =>
+  getVehicleMakes().then((response) => response.json()).then((makes) => {
+    let select = document.getElementById("curlocCar");
+    for (let i = 0; i < makes.length - 1; i++) {
+      let option = document.createElement("option");
+      option.value = makes[i];
+      option.innerText = makes[i];
+      select.appendChild(option);
+    }
+  })
+)
+
 </script>
 
 <template>
@@ -21,8 +23,6 @@ onMounted(() => {
     <label for="curlocCar">Make:</label>
     <div class="select">
       <select name="curlocCar" id="curlocCar">
-        <option value="volvo">Volvo</option>
-        <option value="bugatti">Andrew Tate Bugatti</option>
       </select><br><br>
       <span class="focus"></span>
     </div>
