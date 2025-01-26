@@ -26,9 +26,9 @@ onMounted( () =>
       </select><br><br>
       <span class="focus"></span>
     </div>
-    <label for="deslocCar">Model:</label><br>
-    <input type="text" id="deslocCar"><br>
-    <label for="milDriv">Miles Driven:</label><br>
+    <label for="deslocCar">Model:</label>
+    <input type="text" id="deslocCar"><br><br>
+    <label for="milDriv">Miles Driven:</label>
     <input type="text" id="milDriv"><br><br>
     <button type="submit">Submit</button>
   </form>

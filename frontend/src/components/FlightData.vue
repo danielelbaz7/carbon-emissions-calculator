@@ -38,9 +38,9 @@ export let desloc = null
 <template>
   <form @action="getFlightData" method="POST" id="flightForm">
     <h2>Enter Your Flight Data:</h2>
-    <label for="curlocFlight">Departing Airport:</label><br>
-    <input v-model="curloc" type="text" id="curlocFlight"><br>
-    <label for="deslocFlight">Destination Airport:</label><br>
+    <label for="curlocFlight">Departing Airport:</label>
+    <input v-model="curloc" type="text" id="curlocFlight"><br><br>
+    <label for="deslocFlight">Destination Airport:</label>
     <input v-model="desloc" type="text" id="deslocFlight"><br><br>
     <button @click="getFlightData" type="button">Submit</button>
   </form>

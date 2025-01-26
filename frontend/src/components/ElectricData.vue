@@ -11,7 +11,7 @@
       </select><br><br>
       <span class="focus"></span>
     </div>
-    <label for="kwh">Kwh of electricity used:</label><br>
+    <label for="kwh">Kwh of electricity used:</label>
     <input type="text" id="kwh"><br><br>
     <button type="submit">Submit</button>
   </form>
