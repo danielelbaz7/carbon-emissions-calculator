@@ -1,7 +1,7 @@
 
 <script setup>
 import {getVehicleMakes} from "@/calculator.js";
-import {onMounted} from "vue";
+import {onMounted, onUpdated} from "vue";
 
 onMounted( () =>
   getVehicleMakes().then((response) => response.json()).then((makes) => {
@@ -15,6 +15,18 @@ onMounted( () =>
   })
 )
 
+onUpdated(() => {
+  getVehicleModels().then((response) => response.json()).then((models) => {
+    let select = document.getElementById("deslocCar");
+    for (let i = 0; i < models.length - 1; i++) {
+      let option = document.createElement("option");
+      option.value = models[i];
+      option.innerText = models[i];
+      select.appendChild(option);
+    }
+  })
+})
+
 </script>
 
 <template>
@@ -26,9 +38,12 @@ onMounted( () =>
       </select><br><br>
       <span class="focus"></span>
     </div>
-    <label for="deslocCar">Model:</label>
-    <input type="text" id="deslocCar"><br><br>
-    <label for="milDriv">Miles Driven:</label>
+    <label for="deslocCar">Model:</label><br>
+    <div class="select">
+      <select name="deslocCar" id="deslocCar">
+      </select><br><br>
+    </div>
+    <label for="milDriv">Miles Driven:</label><br>
     <input type="text" id="milDriv"><br><br>
     <button type="submit">Submit</button>
   </form>
