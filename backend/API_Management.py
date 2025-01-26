@@ -1,3 +1,4 @@
+'''import json
 import os
 from CO2_Calculator import app
 
@@ -6,6 +7,7 @@ import parse_responses
 from flask import Flask, request, Blueprint
 import requests
 import dotenv
+import jsonify
 
 
 dotenv.load_dotenv()
@@ -28,7 +30,6 @@ for key in keys:
     carbon_data_lbs[key] = []
     carbon_data_kg[key] = []
 
-
 @app.route("/process-flight-data", methods=["POST"])
 def get_flight_data():
     departure = request.args.get('curloc')
@@ -43,7 +44,7 @@ def get_flight_data():
     }
 
     response = requests.post(CI_URL, headers=HEADERS, json=data)
-    if(response.status_code == 200):
+    if(response.status_code == 201):
         response_values = parse_responses.Response(response.json())
         carbon_data_lbs["flights"].append(response_values.carbon_lb)
         carbon_data_kg["flights"].append(response_values.carbon_kg)
@@ -55,6 +56,24 @@ def get_makes():
     response = requests.get(MAKES_URL, headers=HEADERS)
     if(response.status_code == 200):
         all_makes = [item["data"]["attributes"]["name"] for item in response.json()]
-        return all_makes
+        return jsonify(all_makes)
     return None
 
+@app.route("/get-total-emissions", methods=["GET"])
+def get_total_emissions():
+    total_emissions_kg = 0
+    total_emissions_lb = 0
+
+    for key in carbon_data_kg:
+        for emission in key:
+            total_emissions_kg += carbon_data_kg[emission]
+
+    for key in carbon_data_lbs:
+        for emission in key:
+            total_emissions_lb += carbon_data_lbs[emission]
+
+
+
+    return json.dumps({"kg": total_emissions_kg, "lb": total_emissions_lb})
+
+'''
