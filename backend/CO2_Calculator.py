@@ -69,8 +69,13 @@ def get_flight_data():
 def get_makes():
     response = requests.get(MAKES_URL, headers=HEADERS)
     if(response.status_code == 200):
-        all_makes = [item["data"]["attributes"]["name"] for item in response.json()]
-        return all_makes
+        all_makes_names = [item["data"]["attributes"]["name"] for item in response.json()]
+        all_makes_ids = [item["data"]["id"] for item in response.json()]
+        makes_data = {
+            "names": all_makes_names,
+            "ids": all_makes_ids
+        }
+        return json.dumps(makes_data)
     return None
 
 @app.route("/get-total-emissions", methods=["GET"])
